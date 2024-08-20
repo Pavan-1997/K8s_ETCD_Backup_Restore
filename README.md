@@ -70,13 +70,13 @@ etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.
 
 10. Change the paths in etcd.yaml
 
-11. Restart the kubelet and etcd server
+11. Restart the kube systems server and  kubelet
 ```
-sudo systemctl restart kubelet 
-sudo systemctl daemon-reload
-
 mv *.yaml /temp
 mv /temp/*.yaml .
+
+sudo systemctl restart kubelet 
+sudo systemctl daemon-reload
 ```
 
 12. Now when you list the pod you should be seeing it 
