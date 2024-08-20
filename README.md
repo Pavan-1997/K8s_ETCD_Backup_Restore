@@ -78,3 +78,5 @@ sudo systemctl daemon-reload
 mv *.yaml /temp
 mv /temp/*.yaml .
 ```
+
+12. Now when you list the pod you should be seeing it 
