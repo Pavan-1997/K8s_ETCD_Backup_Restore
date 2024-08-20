@@ -48,5 +48,30 @@ etcdctl --write-out=table snapshot status /opt/etc-backup.db
 ```
 ![image](https://github.com/user-attachments/assets/f0f034d5-a11a-4de6-b0b2-dcfed901fa2a)
 
+
+7. Verify the pod
+```
+k get pods
+```
+![image](https://github.com/user-attachments/assets/c81b2317-9f93-4cf8-95e5-7066dec5ff28)
+
+
+8. Delete the Pod
+```
+k delete pod nginx-pod
+```
 ![image](https://github.com/user-attachments/assets/9c4f1538-411e-4a8b-998b-2a59aadba795)
 
+
+9. Now restore the snapshot
+```
+etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt  --key=/etc/kubernetes/pki/etcd/peer.key snapshot restore /opt/etc-backup.db --data-dir=/var/lib/etcd-restore-from-backup
+```
+
+10. Change the paths in etcd.yaml
+
+11. Restart the kubelet
+```
+sudo systemctl restart kubelet 
+sudo systemctl daemon-reload
+```
