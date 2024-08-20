@@ -70,8 +70,11 @@ etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.
 
 10. Change the paths in etcd.yaml
 
-11. Restart the kubelet
+11. Restart the kubelet and etcd server
 ```
 sudo systemctl restart kubelet 
 sudo systemctl daemon-reload
+
+mv *.yaml /temp
+mv /temp/*.yaml .
 ```
