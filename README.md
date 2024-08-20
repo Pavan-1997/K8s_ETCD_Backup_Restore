@@ -8,7 +8,7 @@ k get all -A -o yaml > backup.yaml
 
 ---
 
-Going with the Snapshot option for Backup and Restore
+### Going with the Snapshot option for Backup and Restore
 
 1. Run a pod for Nginx to check
 
